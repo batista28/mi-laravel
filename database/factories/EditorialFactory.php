@@ -1,11 +1,25 @@
-<?PHP
-use Faker\Generator as Faker;
+<?php
 
-$factory->define(App\Models\Editorial::class, function (Faker $faker) {
-    return [
-        'nombre' => $faker->company,
-        'fundacion' => $faker->date,
-        'sede' => $faker->city,
-    ];
-});
-?>
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Editorial>
+ */
+class EditorialFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'nombre' => fake()->company,
+            'fundacion' => fake()->date,
+            'sede' => fake()->city,
+        ];
+    }
+}

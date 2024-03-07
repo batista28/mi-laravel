@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class DetallePedido extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'manga_id',
+        'pedido_id',
+        'cantidad',
+    ];
 }

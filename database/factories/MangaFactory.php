@@ -1,14 +1,28 @@
-<?php use Faker\Generator as Faker;
+<?php
 
-$factory->define(App\Models\Manga::class, function (Faker $faker) {
-    return [
-        'titulo' => $faker->sentence,
-        'autor_id' => factory(App\Models\Autor::class),
-        'genero_id' => factory(App\Models\Genero::class),
-        'editorial_id' => factory(App\Models\Editorial::class),
-        'precio' => $faker->randomFloat(2, 5, 100),
-        'stock' => $faker->numberBetween(0, 100),
-        'imagen' => $faker->imageUrl,
-    ];
-});
-?>
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Manga>
+ */
+class MangaFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'titulo' => fake()->sentence,
+            'precio' => fake()->randomFloat(2, 5, 100),
+            'stock' => fake()->numberBetween(0, 100),
+            'imagen' => fake()->imageUrl,
+            'genero_id' => fake()->numberBetween(1, 10),
+            'editorial_id' => fake()->numberBetween(1, 10),
+        ];
+    }
+}

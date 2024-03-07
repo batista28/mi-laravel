@@ -1,10 +1,24 @@
 <?php
-use Faker\Generator as Faker;
 
-$factory->define(App\Models\AutorManga::class, function (Faker $faker) {
-    return [
-        'autor_id' => factory(App\Models\Autor::class),
-        'manga_id' => factory(App\Models\Manga::class),
-    ];
-});
-?>
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\AutorManga>
+ */
+class AutorMangaFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'manga_id' => fake()->numberBetween(1, 10),
+            'autor_id' => fake()->numberBetween(1, 10),
+        ];
+    }
+}

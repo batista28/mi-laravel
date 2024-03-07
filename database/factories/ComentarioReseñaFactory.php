@@ -1,11 +1,25 @@
 <?php
-use Faker\Generator as Faker;
 
-$factory->define(App\Models\ComentarioReseña::class, function (Faker $faker) {
-    return [
-        'reseña_id' => factory(App\Models\Reseña::class),
-        'cliente_id' => factory(App\Models\Cliente::class),
-        'contenido' => $faker->paragraph,
-    ];
-});
-?>
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ComentarioReseña>
+ */
+class ComentarioReseñaFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'reseña_id' => fake()->numberBetween(1, 10),
+            'cliente_id' => fake()->numberBetween(1, 10),
+            'contenido' => fake()->paragraph,
+        ];
+    }
+}

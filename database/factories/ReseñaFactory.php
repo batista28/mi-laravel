@@ -17,10 +17,11 @@ class ReseñaFactory extends Factory
     public function definition(): array
     {
         return [
-
+            'manga_id' => fake()->numberBetween(1, 10),
             'contenido' => fake()->text(),
-            'puntuacion'=> fake()->randomNumber(1,10),
-            
+            'puntuacion' => fake()->randomNumber(1, 10),
+            'cliente_id' => fake()->numberBetween(1, 10),
+
         ];
     }
 }

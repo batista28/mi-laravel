@@ -1,9 +1,24 @@
-<?php use Faker\Generator as Faker;
+<?php
 
-$factory->define(App\Models\Genero::class, function (Faker $faker) {
-    return [
-        'nombre' => $faker->word,
-        'descripcion' => $faker->paragraph,
-    ];
-});
-?>
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Genero>
+ */
+class GeneroFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'nombre' => fake()->word,
+            'descripcion' => fake()->paragraph,
+        ];
+    }
+}

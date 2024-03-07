@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->unsignedBigInteger('pedido_id');
             $table->unsignedBigInteger('manga_id');
             $table->integer('cantidad');
-            $table->decimal('precio_unitario', 10, 2);
             $table->timestamps();
 
             $table->foreign('pedido_id')->references('id')->on('pedidos');

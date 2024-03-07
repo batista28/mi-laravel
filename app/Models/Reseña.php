@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Reseña extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'contenido',
+        'puntuacion',
+        'cliente_id',
+        'manga_id',
+    ];
+
 }
