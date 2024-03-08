@@ -10,14 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('detalle_pedidos', function (Blueprint $table) {
+        Schema::create('autor_mangas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('pedido_id');
+            $table->unsignedBigInteger('autor_id');
             $table->unsignedBigInteger('manga_id');
-            $table->integer('cantidad');
             $table->timestamps();
 
-            $table->foreign('pedido_id')->references('id')->on('pedidos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('autor_id')->references('id')->on('autors')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreign('manga_id')->references('id')->on('mangas')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('detalle_pedidos');
+        Schema::dropIfExists('autores_mangas');
     }
 };

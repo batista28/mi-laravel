@@ -10,15 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        // Migración para la tabla `pedidos`
-        Schema::create('pedidos', function (Blueprint $table) {
+        Schema::create('autors', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cliente_id');
-            $table->dateTime('fecha');
-            $table->decimal('total', 10, 2);
+            $table->string('nombre', 255);
+            $table->string('nacionalidad', 255)->nullable();
+            $table->date('fecha_nacimiento')->nullable();
             $table->timestamps();
-
-            $table->foreign('cliente_id')->references('id')->on('clientes')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('pedidos');
+        Schema::dropIfExists('autores');
     }
 };

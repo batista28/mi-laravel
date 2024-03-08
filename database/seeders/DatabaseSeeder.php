@@ -12,18 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
-        \App\Models\Autor::factory(10)->create();
-        \App\Models\AutorManga::factory(10)->create();
-        \App\Models\Cliente::factory(10)->create();
-        \App\Models\ComentarioReseña::factory(10)->create();
-        \App\Models\DetallePedido::factory(10)->create();
-        \App\Models\Editorial::factory(10)->create();
-        \App\Models\Genero::factory(10)->create();
-        \App\Models\Manga::factory(10)->create();
-        \App\Models\Pedido::factory(10)->create();
-        \App\Models\Reseña::factory(10)->create();
-                
+        \App\Models\Users::factory(10)->create();
+        \App\Models\Autors::factory(10)->create();
+        \App\Models\Generos::factory(10)->create();
+        \App\Models\Editorials::factory(10)->create();
+        \App\Models\Mangas::factory(10)->create();
+        \App\Models\AutorMangas::factory(10)->create();
+        \App\Models\Clientes::factory(10)->create();
+        \App\Models\Pedidos::factory(10)->create();
+        \App\Models\DetallePedidos::factory(10)->create();
+        \App\Models\Reseñas::factory(10)->create();
+        \App\Models\ComentarioReseñas::factory(10)->create();
+
 
     }
 }

@@ -21,8 +21,9 @@ return new class extends Migration {
             $table->timestamps();
 
 
-            $table->foreign('genero_id')->references('id')->on('generos');
-            $table->foreign('editorial_id')->references('id')->on('editoriales');
+            $table->foreign('genero_id')->references('id')->on('generos')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('editorial_id')->references('id')->on('editorials')->cascadeOnDelete()->cascadeOnUpdate();
+
         });
     }
 

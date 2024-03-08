@@ -10,15 +10,15 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('comentarios_reseñas', function (Blueprint $table) {
+        Schema::create('comentario_reseñas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('reseña_id');
             $table->unsignedBigInteger('cliente_id');
             $table->text('contenido');
             $table->timestamps();
 
-            $table->foreign('reseña_id')->references('id')->on('reseñas');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('reseña_id')->references('id')->on('reseñas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

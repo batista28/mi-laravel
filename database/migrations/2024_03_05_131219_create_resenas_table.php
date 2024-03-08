@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->integer('puntuacion');
             $table->timestamps();
 
-            $table->foreign('manga_id')->references('id')->on('mangas');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('manga_id')->references('id')->on('mangas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('cliente_id')->references('id')->on('clientes')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
